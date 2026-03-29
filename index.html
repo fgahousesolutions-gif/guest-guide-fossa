@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Guide</title>
+  <style>
+    :root {
+      --bg: #eef0f4;
+      --card: #f7f7f8;
+      --text: #18213c;
+      --muted: #6b7890;
+      --border: #273454;
+      --primary: #0f1b3d;
+      --primary-hover: #162754;
+      --shadow: 0 8px 24px rgba(15, 27, 61, 0.08);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .hero {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-content {
+      padding: 28px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .space-top {
+      margin-top: 18px;
+    }
+
+    .button-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .lang-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 26px;
+    }
+
+    .lang-btn,
+    .action-btn,
+    .doc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 62px;
+      padding: 14px 18px;
+      border-radius: 22px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .lang-btn {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+      background: #e9edf5;
+    }
+
+    .primary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .action-btn {
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--border);
+    }
+
+    .action-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .docs-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    .doc-btn {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .doc-btn:hover {
+      background: #eef2f8;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px;
+    }
+
+    .info-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .info-item .label {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-item .value {
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .info-item .note {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 0 24px;
+    }
+
+    @media (max-width: 900px) {
+      .docs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        padding: 14px;
+      }
+
+      .hero img {
+        height: 220px;
+      }
+
+      .hero-content,
+      .card {
+        padding: 20px;
+      }
+
+      .lang-grid,
+      .primary-grid,
+      .docs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <div style="max-width:1100px;margin:22px auto 0;padding:16px 22px;border-radius:20px;background:#f7f7f8;color:#18213c;box-shadow:0 8px 24px rgba(15, 27, 61, 0.08);font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+      Questa guest guide richiede JavaScript per mostrare correttamente i contenuti.
+    </div>
+  </noscript>
+  <div class="wrap">
+
+    <section class="hero">
+      <img id="cover-image" src="" alt="">
+      <div class="hero-content">
+        <h1 id="apartment-name"></h1>
+        <p class="subtitle" id="subtitle-1"></p>
+        <p class="subtitle space-top" id="subtitle-2"></p>
+
+        <div class="button-grid lang-grid">
+          <button type="button" class="lang-btn" data-lang="it">Italiano</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-btn" data-lang="fr">Français</button>
+          <button type="button" class="lang-btn" data-lang="es">Español</button>
+        </div>
+
+        <div class="button-grid primary-grid">
+          <a class="action-btn" id="map-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="action-btn" id="whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+
+        <div class="button-grid docs-grid" id="docs-grid">
+          <a class="doc-btn" id="rules-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="doc-btn" id="arrival-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="doc-btn" id="pet-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="doc-btn" id="extra-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="info-card">
+      <div class="info-grid">
+        <div class="info-stack">
+          <div class="info-item" id="address-item">
+            <span class="label" id="label-address"></span>
+            <div class="value" id="address-value"></div>
+          </div>
+
+          <div class="info-item" id="checkin-item">
+            <span class="label" id="label-checkin"></span>
+            <div class="value" id="checkin-value"></div>
+          </div>
+
+          <div class="info-item" id="checkout-item">
+            <span class="label" id="label-checkout"></span>
+            <div class="value" id="checkout-value"></div>
+          </div>
+        </div>
+
+        <div class="info-stack">
+          <div class="info-item" id="wifi-item">
+            <span class="label" id="label-wifi"></span>
+            <div class="value" id="wifi-name"></div>
+            <div class="note" id="wifi-password"></div>
+          </div>
+
+          <div class="info-item" id="contact-item">
+            <span class="label" id="label-contact"></span>
+            <div class="value" id="contact-value"></div>
+            <div class="note" id="contact-note"></div>
+          </div>
+
+          <div class="info-item" id="parking-item">
+            <span class="label" id="label-parking"></span>
+            <div class="value" id="parking-short"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="access-card">
+      <h2 id="access-title"></h2>
+      <p id="access-text"></p>
+      <p class="muted" id="access-note"></p>
+    </section>
+
+    <section class="card" id="rules-card">
+      <h2 id="rules-title"></h2>
+      <ul id="rules-list"></ul>
+    </section>
+
+    <section class="card" id="waste-card">
+      <h2 id="waste-title"></h2>
+      <p id="waste-text"></p>
+      <p class="muted" id="waste-note"></p>
+    </section>
+
+    <section class="card" id="checkout-card">
+      <h2 id="checkout-title"></h2>
+      <ul id="checkout-list"></ul>
+    </section>
+
+    <section class="card" id="suggestions-card">
+      <h2 id="suggestions-title"></h2>
+
+      <div id="restaurants-block">
+        <h3 id="restaurants-title"></h3>
+        <ul id="restaurants-list"></ul>
+      </div>
+
+      <div id="attractions-block">
+        <h3 id="attractions-title" style="margin-top:20px;"></h3>
+        <ul id="attractions-list"></ul>
+      </div>
+    </section>
+
+    <section class="card" id="map-card">
+      <h2 id="map-title"></h2>
+      <p id="map-text"></p>
+      <p id="coords-row"><strong id="coords-label"></strong> <span id="coords-value"></span></p>
+    </section>
+
+    <div class="footer" id="footer-text"></div>
+  </div>
+
+  <script>
+    /*
+      =====================================================
+      TEMPLATE MASTER FGA HOUSE SOLUTIONS
+      TOCCA SOLO QUESTE DUE SEZIONI:
+      1) PROPERTY
+      2) CONTENT
+      =====================================================
+    */
+
+    const PROPERTY = {
+      apartmentName: "Gran Sasso Mountain Retreat",
+      coverImage: "cover-fossa.jpg",
+      mapsUrl: "https://maps.app.goo.gl/6JippPGNmGMKeU4w5",
+      coordinates: "42°17'45.1\"N 13°29'13.4\"E",
+
+      whatsappUrl: "https://wa.me/393290624796",
+      whatsappDisplay: "Chat libera",
+
+      address: "Via della Baronessa 5, 67020 Fossa (AQ)",
+      checkin: "15:30 - 00:00",
+      checkout: "10:00 - 10:30",
+
+      wifiName: "5GPowerWiFi-ADE4AD",
+      wifiPassword: "9yQ84jgjy34r8379",
+
+      documents: {
+        arrival: {
+          it: "arrival-info-it.pdf",
+          en: "arrival-info-en.pdf",
+          de: "arrival-info-de.pdf",
+          fr: "arrival-info-fr.pdf",
+          es: "arrival-info-es.pdf",
+          fallback: "arrival-info-en.pdf"
+        },
+        rules: {
+          it: "house-rules-it.pdf",
+          en: "house-rules-en.pdf",
+          de: "house-rules-de.pdf",
+          fr: "house-rules-fr.pdf",
+          es: "house-rules-es.pdf",
+          fallback: "house-rules-en.pdf"
+        },
+        pet: "",
+        extra: ""
+      }
+    };
+
+    const CONTENT = {
+      it: {
+        pageTitle: "Guida Ospiti",
+        subtitle1: "Guida Ospiti / Guest Guide",
+        subtitle2: "Tutte le informazioni utili per un soggiorno semplice e senza pensieri.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Regole complete",
+        arrivalBtn: "📘 Istruzioni dettagliate",
+        petBtn: "🐾 Regole animali",
+        extraBtn: "📎 Informazioni extra",
+
+        labelAddress: "📍 Indirizzo",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password",
+        labelContact: "💬 Contatto",
+        contactNote: "Solo chat 07:00-22:00",
+        labelParking: "🚗 Parcheggio",
+        parkingShort: "Gratuito in strada, fronte secondo portone dopo Piazza del Municipio",
+
+        accessTitle: "🗝️ Accesso",
+        accessText: "Dopo aver parcheggiato sulla strada principale come indicato, raggiungete la scalinata poco distante e salite fino in cima al piano rialzato. Sulla ringhiera a destra troverete la keybox con le chiavi all'interno. Consultate anche la guida allegata con foto.",
+        accessNote: "Il codice della keybox verra comunicato dall'host il giorno del check-in.",
+
+        rulesTitle: "🏡 Regole casa",
+        rulesList: [
+          "Vietato fumare in tutta la casa.",
+          "Vietate feste ed eventi.",
+          "Non utilizzare troppi elettrodomestici contemporaneamente per evitare il distacco della corrente.",
+          "Chiudere sempre porte e finestre quando si esce."
+        ],
+
+        wasteTitle: "♻️ Rifiuti",
+        wasteText: "La raccolta differenziata e obbligatoria e va effettuata utilizzando gli appositi contenitori.",
+        wasteNote: "Per soggiorni medio-lunghi, seguite la tabella dei giorni di raccolta ed esponete i rifiuti in strada nei giorni corretti.",
+
+        checkoutTitle: "✅ Prima del check-out",
+        checkoutList: [
+          "Chiudere porte e finestre.",
+          "Assicurarsi che tutti gli elettrodomestici siano spenti.",
+          "Controllare che tutti i rubinetti dell'acqua siano chiusi.",
+          "Riporre la biancheria da bagno utilizzata in un punto del bagno.",
+          "Riporre le chiavi nella keybox e modificare il codice in modo che non si riapra."
+        ],
+
+        suggestionsTitle: "🍽️ Suggerimenti in zona",
+        restaurantsTitle: "🍴 Ristoranti",
+        restaurantsList: [
+          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — consigliata la prenotazione; segnalate che siete ospiti dell'appartamento di Marco Ricci."
+        ],
+
+        attractionsTitle: "🏞️ Attrazioni",
+        attractionsList: [
+          "<strong>L'Aquila</strong> — centro storico, piazze e locali a pochi minuti in auto.",
+          "<strong>Campo Imperatore</strong> — altopiano e punto panoramico iconico del Gran Sasso.",
+          "<strong>Campo Felice</strong> — area ideale per sport invernali ed escursioni.",
+          "<strong>Necropoli di Fossa</strong> — importante sito archeologico nelle immediate vicinanze.",
+          "<strong>Chiesa di Santa Maria ad Cryptas</strong> — chiesa medievale affrescata poco fuori dal borgo.",
+          "<strong>Parco Nazionale del Gran Sasso e Monti della Laga</strong> — natura, trekking e panorami unici."
+        ],
+
+        mapTitle: "🗺️ Mappa",
+        mapText: "Come punto di riferimento utilizzate il Municipio di Fossa: la struttura si trova subito dopo la piazza.",
+        coordsLabel: "Coordinate:",
+        footerText: "Auguriamo un buon soggiorno"
+      },
+
+      en: {
+        pageTitle: "Guest Guide",
+        subtitle1: "Guest Guide",
+        subtitle2: "All the useful information for a smooth and worry-free stay.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Full house rules",
+        arrivalBtn: "📘 Detailed instructions",
+        petBtn: "🐾 Pet rules",
+        extraBtn: "📎 Extra information",
+
+        labelAddress: "📍 Address",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password",
+        labelContact: "💬 Contact",
+        contactNote: "Chat only 07:00-22:00",
+        labelParking: "🚗 Parking",
+        parkingShort: "Free street parking, in front of the second entrance after Piazza del Municipio",
+
+        accessTitle: "🗝️ Access",
+        accessText: "After parking on the main road as indicated, walk to the nearby staircase and go up to the raised ground floor. On the railing to the right you will find the keybox with the keys inside. Please also check the attached guide with photos.",
+        accessNote: "The keybox code will be provided by the host on the day of check-in.",
+
+        rulesTitle: "🏡 House rules",
+        rulesList: [
+          "Smoking is not allowed anywhere inside the house.",
+          "Parties and events are not allowed.",
+          "Please avoid using too many electrical appliances at the same time to prevent the power from tripping.",
+          "Always close doors and windows when leaving."
+        ],
+
+        wasteTitle: "♻️ Waste",
+        wasteText: "Waste sorting is mandatory and must be done using the appropriate bins.",
+        wasteNote: "For medium or long stays, please follow the waste collection schedule and place rubbish outside on the correct days.",
+
+        checkoutTitle: "✅ Before check-out",
+        checkoutList: [
+          "Close all doors and windows.",
+          "Make sure all appliances are switched off.",
+          "Check that all water taps are closed.",
+          "Leave the used bathroom linen in one area of the bathroom.",
+          "Place the keys back in the keybox and change the code so it cannot be reopened."
+        ],
+
+        suggestionsTitle: "🍽️ Local suggestions",
+        restaurantsTitle: "🍴 Restaurants",
+        restaurantsList: [
+          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — booking is recommended; please mention that you are guests of Marco Ricci's apartment."
+        ],
+
+        attractionsTitle: "🏞️ Attractions",
+        attractionsList: [
+          "<strong>L'Aquila</strong> — historic centre, squares and local spots just a short drive away.",
+          "<strong>Campo Imperatore</strong> — iconic Gran Sasso plateau with stunning views.",
+          "<strong>Campo Felice</strong> — ideal area for winter sports and excursions.",
+          "<strong>Necropolis of Fossa</strong> — important archaeological site very close to the village.",
+          "<strong>Santa Maria ad Cryptas Church</strong> — frescoed medieval church just outside the village.",
+          "<strong>Gran Sasso and Monti della Laga National Park</strong> — nature, hiking and remarkable scenery."
+        ],
+
+        mapTitle: "🗺️ Map",
+        mapText: "Use the Town Hall of Fossa as your reference point: the property is located immediately after the main square.",
+        coordsLabel: "Coordinates:",
+        footerText: "We wish you a pleasant stay"
+      },
+
+      de: {
+        pageTitle: "Gastefuhrer",
+        subtitle1: "Gastefuhrer",
+        subtitle2: "Alle nutzlichen Informationen fur einen einfachen und sorgenfreien Aufenthalt.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Vollstandige Hausregeln",
+        arrivalBtn: "📘 Detaillierte Anweisungen",
+        petBtn: "🐾 Regeln fur Haustiere",
+        extraBtn: "📎 Zusatzliche Informationen",
+
+        labelAddress: "📍 Adresse",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Passwort",
+        labelContact: "💬 Kontakt",
+        contactNote: "Nur Chat 07:00-22:00",
+        labelParking: "🚗 Parkplatz",
+        parkingShort: "Kostenloses Parken an der Strasse vor dem zweiten Eingang nach der Piazza del Municipio",
+
+        accessTitle: "🗝️ Zugang",
+        accessText: "Nachdem Sie wie angegeben an der Hauptstrasse geparkt haben, gehen Sie zur nahegelegenen Treppe und hinauf bis zum Hochparterre. Am Gelander auf der rechten Seite finden Sie die Keybox mit den Schlusseln. Bitte sehen Sie sich auch die beigefugte Anleitung mit Fotos an.",
+        accessNote: "Der Code der Keybox wird Ihnen vom Host am Tag des Check-ins mitgeteilt.",
+
+        rulesTitle: "🏡 Hausregeln",
+        rulesList: [
+          "Rauchen ist im gesamten Haus verboten.",
+          "Partys und Veranstaltungen sind nicht erlaubt.",
+          "Bitte benutzen Sie nicht zu viele Elektrogerate gleichzeitig, um einen Stromausfall zu vermeiden.",
+          "Schliessen Sie beim Verlassen immer Turen und Fenster."
+        ],
+
+        wasteTitle: "♻️ Mull",
+        wasteText: "Mulltrennung ist Pflicht und muss mit den dafur vorgesehenen Behaltern erfolgen.",
+        wasteNote: "Bei mittel- oder langfristigen Aufenthalten beachten Sie bitte den Sammelkalender und stellen Sie den Mull an den richtigen Tagen hinaus.",
+
+        checkoutTitle: "✅ Vor dem Check-out",
+        checkoutList: [
+          "Schliessen Sie alle Turen und Fenster.",
+          "Stellen Sie sicher, dass alle Elektrogerate ausgeschaltet sind.",
+          "Prufen Sie, dass alle Wasserhahne geschlossen sind.",
+          "Legen Sie die benutzte Badezimmerwasche an einer Stelle im Bad ab.",
+          "Legen Sie die Schlussel in die Keybox zuruck und andern Sie den Code, damit sie nicht wieder geoffnet werden kann."
+        ],
+
+        suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
+        restaurantsTitle: "🍴 Restaurants",
+        restaurantsList: [
+          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — Reservierung empfohlen; bitte sagen Sie, dass Sie Gaste von Marco Riccis Apartment sind."
+        ],
+
+        attractionsTitle: "🏞️ Sehenswurdigkeiten",
+        attractionsList: [
+          "<strong>L'Aquila</strong> — historische Altstadt, Platze und Lokale nur wenige Autominuten entfernt.",
+          "<strong>Campo Imperatore</strong> — ikonische Hochebene des Gran Sasso mit beeindruckendem Panorama.",
+          "<strong>Campo Felice</strong> — ideal fur Wintersport und Ausfluge.",
+          "<strong>Nekropole von Fossa</strong> — bedeutende archaologische Statte in unmittelbarer Nahe.",
+          "<strong>Kirche Santa Maria ad Cryptas</strong> — mittelalterliche Kirche mit Fresken kurz ausserhalb des Dorfes.",
+          "<strong>Nationalpark Gran Sasso e Monti della Laga</strong> — Natur, Wanderungen und einzigartige Ausblicke."
+        ],
+
+        mapTitle: "🗺️ Karte",
+        mapText: "Nutzen Sie das Rathaus von Fossa als Orientierungspunkt: die Unterkunft befindet sich direkt hinter dem Hauptplatz.",
+        coordsLabel: "Koordinaten:",
+        footerText: "Wir wunschen Ihnen einen angenehmen Aufenthalt"
+      },
+
+      fr: {
+        pageTitle: "Guide des voyageurs",
+        subtitle1: "Guide des voyageurs",
+        subtitle2: "Toutes les informations utiles pour un séjour simple et sans souci.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Reglement complet",
+        arrivalBtn: "📘 Instructions detaillees",
+        petBtn: "🐾 Regles animaux",
+        extraBtn: "📎 Informations supplementaires",
+
+        labelAddress: "📍 Adresse",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Mot de passe",
+        labelContact: "💬 Contact",
+        contactNote: "Chat uniquement 07:00-22:00",
+        labelParking: "🚗 Parking",
+        parkingShort: "Stationnement gratuit dans la rue, devant le deuxieme portail apres la Piazza del Municipio",
+
+        accessTitle: "🗝️ Acces",
+        accessText: "Apres avoir gare la voiture sur la route principale comme indique, rejoignez l'escalier situe a proximite et montez jusqu'au rez-de-chaussee sureleve. Sur la rambarde a droite, vous trouverez la keybox contenant les cles. Consultez egalement le guide joint avec photos.",
+        accessNote: "Le code de la keybox sera communique par l'hote le jour du check-in.",
+
+        rulesTitle: "🏡 Regles de la maison",
+        rulesList: [
+          "Il est interdit de fumer dans toute la maison.",
+          "Les fetes et evenements sont interdits.",
+          "Veuillez eviter d'utiliser trop d'appareils electriques en meme temps afin d'eviter une coupure de courant.",
+          "Fermez toujours les portes et les fenetres lorsque vous sortez."
+        ],
+
+        wasteTitle: "♻️ Dechets",
+        wasteText: "Le tri des dechets est obligatoire et doit etre effectue en utilisant les conteneurs appropries.",
+        wasteNote: "Pour les sejours moyens ou longs, veuillez suivre le calendrier de collecte et sortir les dechets les bons jours.",
+
+        checkoutTitle: "✅ Avant le check-out",
+        checkoutList: [
+          "Fermez toutes les portes et fenetres.",
+          "Assurez-vous que tous les appareils sont eteints.",
+          "Verifiez que tous les robinets d'eau sont fermes.",
+          "Laissez le linge de bain utilise dans un coin de la salle de bain.",
+          "Remettez les cles dans la keybox et changez le code afin qu'elle ne puisse plus etre ouverte."
+        ],
+
+        suggestionsTitle: "🍽️ Suggestions dans les environs",
+        restaurantsTitle: "🍴 Restaurants",
+        restaurantsList: [
+          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — reservation recommandee ; merci de signaler que vous etes les hotes de l'appartement de Marco Ricci."
+        ],
+
+        attractionsTitle: "🏞️ Attractions",
+        attractionsList: [
+          "<strong>L'Aquila</strong> — centre historique, places et bonnes adresses a quelques minutes en voiture.",
+          "<strong>Campo Imperatore</strong> — plateau emblématique du Gran Sasso avec de superbes panoramas.",
+          "<strong>Campo Felice</strong> — zone ideale pour les sports d'hiver et les excursions.",
+          "<strong>Necropole de Fossa</strong> — important site archeologique tout proche du village.",
+          "<strong>Eglise Santa Maria ad Cryptas</strong> — eglise medievale aux fresques situee a quelques pas du bourg.",
+          "<strong>Parc national du Gran Sasso et des Monti della Laga</strong> — nature, randonnees et paysages remarquables."
+        ],
+
+        mapTitle: "🗺️ Carte",
+        mapText: "Utilisez la mairie de Fossa comme point de repere : l'hebergement se trouve juste apres la place principale.",
+        coordsLabel: "Coordonnees :",
+        footerText: "Nous vous souhaitons un excellent sejour"
+      },
+
+      es: {
+        pageTitle: "Guia para huespedes",
+        subtitle1: "Guia para huespedes",
+        subtitle2: "Toda la informacion util para una estancia sencilla y sin preocupaciones.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Normas completas",
+        arrivalBtn: "📘 Instrucciones detalladas",
+        petBtn: "🐾 Normas mascotas",
+        extraBtn: "📎 Informacion extra",
+
+        labelAddress: "📍 Direccion",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Contrasena",
+        labelContact: "💬 Contacto",
+        contactNote: "Solo chat 07:00-22:00",
+        labelParking: "🚗 Aparcamiento",
+        parkingShort: "Aparcamiento gratuito en la calle, frente al segundo portal despues de la Piazza del Municipio",
+
+        accessTitle: "🗝️ Acceso",
+        accessText: "Despues de aparcar en la calle principal como se indica, llegue a la escalera cercana y suba hasta la planta elevada. En la barandilla de la derecha encontrara la keybox con las llaves dentro. Consulte tambien la guia adjunta con fotos.",
+        accessNote: "El codigo de la keybox sera comunicado por el anfitrion el dia del check-in.",
+
+        rulesTitle: "🏡 Normas de la casa",
+        rulesList: [
+          "Esta prohibido fumar en toda la casa.",
+          "No se permiten fiestas ni eventos.",
+          "Procure no utilizar demasiados electrodomesticos al mismo tiempo para evitar que salte la corriente.",
+          "Cierre siempre puertas y ventanas al salir."
+        ],
+
+        wasteTitle: "♻️ Residuos",
+        wasteText: "La recogida selectiva es obligatoria y debe hacerse utilizando los contenedores correspondientes.",
+        wasteNote: "Para estancias medias o largas, siga el calendario de recogida y saque los residuos a la calle en los dias correctos.",
+
+        checkoutTitle: "✅ Antes del check-out",
+        checkoutList: [
+          "Cierre todas las puertas y ventanas.",
+          "Asegurese de que todos los electrodomesticos esten apagados.",
+          "Compruebe que todos los grifos de agua esten cerrados.",
+          "Deje la ropa de bano utilizada en una zona del cuarto de bano.",
+          "Vuelva a colocar las llaves en la keybox y cambie el codigo para que no pueda volver a abrirse."
+        ],
+
+        suggestionsTitle: "🍽️ Sugerencias en la zona",
+        restaurantsTitle: "🍴 Restaurantes",
+        restaurantsList: [
+          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — se recomienda reservar; indique que es huesped del apartamento de Marco Ricci."
+        ],
+
+        attractionsTitle: "🏞️ Atracciones",
+        attractionsList: [
+          "<strong>L'Aquila</strong> — centro historico, plazas y locales a pocos minutos en coche.",
+          "<strong>Campo Imperatore</strong> — altiplano emblematico del Gran Sasso con vistas espectaculares.",
+          "<strong>Campo Felice</strong> — zona ideal para deportes de invierno y excursiones.",
+          "<strong>Necropolis de Fossa</strong> — importante yacimiento arqueologico en las inmediaciones.",
+          "<strong>Iglesia de Santa Maria ad Cryptas</strong> — iglesia medieval con frescos muy cerca del pueblo.",
+          "<strong>Parque Nacional del Gran Sasso y Monti della Laga</strong> — naturaleza, senderismo y paisajes unicos."
+        ],
+
+        mapTitle: "🗺️ Mapa",
+        mapText: "Utilice el Ayuntamiento de Fossa como punto de referencia: el alojamiento se encuentra justo despues de la plaza principal.",
+        coordsLabel: "Coordenadas:",
+        footerText: "Le deseamos una feliz estancia"
+      }
+    };
+
+    function hasContentValue(value) {
+      return value !== null && value !== undefined && String(value).trim() !== "";
+    }
+
+    function renderList(id, items) {
+      const list = document.getElementById(id);
+      if (!list) return;
+      list.innerHTML = (items || []).map(item => `<li>${item}</li>`).join("");
+    }
+
+    function getDocumentForLang(docGroup, lang) {
+      if (!docGroup) return "";
+      if (typeof docGroup === "string") return docGroup;
+      if (docGroup[lang]) return docGroup[lang];
+      return docGroup.fallback || "";
+    }
+
+    function hasContentArray(arr) {
+      return Array.isArray(arr) && arr.length > 0;
+    }
+
+    function setHidden(id, hidden) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle("hidden", hidden);
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = value || "";
+    }
+
+    function setTextOrHide(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      if (value && String(value).trim() !== "") {
+        el.textContent = value;
+        el.classList.remove("hidden");
+      } else {
+        el.textContent = "";
+        el.classList.add("hidden");
+      }
+    }
+
+    function setTextOrClear(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = hasContentValue(value) ? value : "";
+    }
+
+    function setInfoItemVisibility(itemId, labelId, valueId, labelText, valueText, noteId, noteText) {
+      const hasValue = hasContentValue(valueText);
+      const hasNote = hasContentValue(noteText);
+
+      setTextOrClear(labelId, hasValue || hasNote ? labelText : "");
+      setTextOrClear(valueId, valueText);
+
+      if (noteId) {
+        setTextOrHide(noteId, noteText);
+      }
+
+      setHidden(itemId, !(hasValue || hasNote));
+    }
+
+    function setButtonVisibility(id, href) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      if (!href || href === "#") {
+        el.classList.add("hidden");
+        el.removeAttribute("href");
+      } else {
+        el.classList.remove("hidden");
+        el.href = href;
+      }
+    }
+
+    function updateInfoCardVisibility() {
+      const itemIds = [
+        "address-item",
+        "checkin-item",
+        "checkout-item",
+        "wifi-item",
+        "contact-item",
+        "parking-item"
+      ];
+
+      const hasVisibleItems = itemIds.some(id => {
+        const el = document.getElementById(id);
+        return el && !el.classList.contains("hidden");
+      });
+
+      setHidden("info-card", !hasVisibleItems);
+    }
+
+    function updateDocsGridVisibility() {
+      const docsGrid = document.getElementById("docs-grid");
+      if (!docsGrid) return;
+      const hasVisibleButtons = Array.from(docsGrid.querySelectorAll(".doc-btn"))
+        .some(btn => !btn.classList.contains("hidden"));
+
+      if (hasVisibleButtons) {
+        docsGrid.classList.remove("hidden");
+      } else {
+        docsGrid.classList.add("hidden");
+      }
+    }
+
+    function setLanguage(lang) {
+      const normalizedLang = CONTENT[lang] ? lang : "it";
+      const t = CONTENT[normalizedLang];
+      const coverImage = document.getElementById("cover-image");
+      const safeDocuments = PROPERTY.documents || {};
+
+      document.documentElement.lang = normalizedLang;
+      document.title = `${PROPERTY.apartmentName || t.pageTitle} - ${t.pageTitle}`;
+
+      if (coverImage) {
+        if (hasContentValue(PROPERTY.coverImage)) {
+          coverImage.src = PROPERTY.coverImage;
+          coverImage.alt = PROPERTY.apartmentName || t.pageTitle;
+          coverImage.classList.remove("hidden");
+        } else {
+          coverImage.removeAttribute("src");
+          coverImage.alt = "";
+          coverImage.classList.add("hidden");
+        }
+      }
+
+      setText("apartment-name", PROPERTY.apartmentName);
+
+      setText("subtitle-1", t.subtitle1);
+      setText("subtitle-2", t.subtitle2);
+
+      setText("map-btn", t.mapBtn);
+      setButtonVisibility("map-btn", PROPERTY.mapsUrl || "");
+
+      setText("whatsapp-btn", t.whatsappBtn);
+      setButtonVisibility("whatsapp-btn", PROPERTY.whatsappUrl || "");
+
+      const rulesDoc = getDocumentForLang(safeDocuments.rules, normalizedLang);
+      const arrivalDoc = getDocumentForLang(safeDocuments.arrival, normalizedLang);
+      const petDoc = getDocumentForLang(safeDocuments.pet, normalizedLang);
+      const extraDoc = getDocumentForLang(safeDocuments.extra, normalizedLang);
+
+      setText("rules-btn", t.rulesBtn);
+      setButtonVisibility("rules-btn", rulesDoc);
+
+      setText("arrival-btn", t.arrivalBtn);
+      setButtonVisibility("arrival-btn", arrivalDoc);
+
+      setText("pet-btn", t.petBtn);
+      setButtonVisibility("pet-btn", petDoc);
+
+      setText("extra-btn", t.extraBtn);
+      setButtonVisibility("extra-btn", extraDoc);
+
+      updateDocsGridVisibility();
+
+      const wifiPasswordText = hasContentValue(PROPERTY.wifiPassword)
+        ? `${t.wifiPasswordLabel}: ${PROPERTY.wifiPassword}`
+        : "";
+
+      setInfoItemVisibility("address-item", "label-address", "address-value", t.labelAddress, PROPERTY.address);
+      setInfoItemVisibility("checkin-item", "label-checkin", "checkin-value", t.labelCheckin, PROPERTY.checkin);
+      setInfoItemVisibility("checkout-item", "label-checkout", "checkout-value", t.labelCheckout, PROPERTY.checkout);
+      setInfoItemVisibility("wifi-item", "label-wifi", "wifi-name", t.wifiLabel, PROPERTY.wifiName, "wifi-password", wifiPasswordText);
+      setInfoItemVisibility("contact-item", "label-contact", "contact-value", t.labelContact, PROPERTY.whatsappDisplay, "contact-note", t.contactNote);
+      setInfoItemVisibility("parking-item", "label-parking", "parking-short", t.labelParking, t.parkingShort);
+
+      updateInfoCardVisibility();
+
+      const hasAccessContent = hasContentValue(t.accessText) || hasContentValue(t.accessNote);
+      setTextOrClear("access-title", hasAccessContent ? t.accessTitle : "");
+      setTextOrClear("access-text", t.accessText);
+      setTextOrHide("access-note", t.accessNote);
+      setHidden("access-card", !hasAccessContent);
+
+      const hasRulesContent = hasContentArray(t.rulesList);
+      setTextOrClear("rules-title", hasRulesContent ? t.rulesTitle : "");
+      renderList("rules-list", hasRulesContent ? t.rulesList : []);
+      setHidden("rules-card", !hasRulesContent);
+
+      const hasWasteContent = hasContentValue(t.wasteText) || hasContentValue(t.wasteNote);
+      setTextOrClear("waste-title", hasWasteContent ? t.wasteTitle : "");
+      setTextOrClear("waste-text", t.wasteText);
+      setTextOrHide("waste-note", t.wasteNote);
+      setHidden("waste-card", !hasWasteContent);
+
+      const hasCheckoutContent = hasContentArray(t.checkoutList);
+      setTextOrClear("checkout-title", hasCheckoutContent ? t.checkoutTitle : "");
+      renderList("checkout-list", hasCheckoutContent ? t.checkoutList : []);
+      setHidden("checkout-card", !hasCheckoutContent);
+
+      const hasRestaurants = hasContentArray(t.restaurantsList);
+      const hasAttractions = hasContentArray(t.attractionsList);
+
+      const suggestionsCard = document.getElementById("suggestions-card");
+      const restaurantsBlock = document.getElementById("restaurants-block");
+      const attractionsBlock = document.getElementById("attractions-block");
+
+      if (hasRestaurants || hasAttractions) {
+        suggestionsCard.classList.remove("hidden");
+        setText("suggestions-title", t.suggestionsTitle);
+
+        if (hasRestaurants) {
+          restaurantsBlock.classList.remove("hidden");
+          setText("restaurants-title", t.restaurantsTitle);
+          renderList("restaurants-list", t.restaurantsList);
+        } else {
+          restaurantsBlock.classList.add("hidden");
+          renderList("restaurants-list", []);
+        }
+
+        if (hasAttractions) {
+          attractionsBlock.classList.remove("hidden");
+          setText("attractions-title", t.attractionsTitle);
+          renderList("attractions-list", t.attractionsList);
+        } else {
+          attractionsBlock.classList.add("hidden");
+          renderList("attractions-list", []);
+        }
+      } else {
+        suggestionsCard.classList.add("hidden");
+      }
+
+      const hasCoordinates = hasContentValue(PROPERTY.coordinates);
+      const hasMapContent = hasContentValue(t.mapText) || hasCoordinates;
+
+      setTextOrClear("map-title", hasMapContent ? t.mapTitle : "");
+      setTextOrClear("map-text", t.mapText);
+      setTextOrClear("coords-label", hasCoordinates ? t.coordsLabel : "");
+      setTextOrClear("coords-value", PROPERTY.coordinates);
+      setHidden("coords-row", !hasCoordinates);
+      setHidden("map-card", !hasMapContent);
+
+      setText("footer-text", t.footerText);
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === normalizedLang);
+      });
+
+      try {
+        localStorage.setItem("guestGuideLang", normalizedLang);
+      } catch (e) {}
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    let savedLang = "it";
+    try {
+      savedLang = localStorage.getItem("guestGuideLang") || "it";
+    } catch (e) {}
+
+    setLanguage(savedLang);
+  </script>
+</body>
+</html>
