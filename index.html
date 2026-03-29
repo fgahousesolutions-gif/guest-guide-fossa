@@ -145,6 +145,10 @@
       background: #eef2f8;
     }
 
+    .inline-doc {
+      margin-top: 18px;
+    }
+
     .card {
       background: var(--card);
       border-radius: var(--radius-xl);
@@ -346,6 +350,7 @@
       <h2 id="waste-title"></h2>
       <p id="waste-text"></p>
       <p class="muted" id="waste-note"></p>
+      <a class="doc-btn inline-doc hidden" id="waste-calendar-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
     </section>
 
     <section class="card" id="checkout-card">
@@ -393,7 +398,7 @@
       coordinates: "42°17'45.1\"N 13°29'13.4\"E",
 
       whatsappUrl: "https://wa.me/393290624796",
-      whatsappDisplay: "Chat libera",
+      whatsappDisplay: "+39 329 0624796",
 
       address: "Via della Baronessa 5, 67020 Fossa (AQ)",
       checkin: "15:30 - 00:00",
@@ -406,21 +411,21 @@
         arrival: {
           it: "arrival-info-it.pdf",
           en: "arrival-info-en.pdf",
-          de: "arrival-info-de.pdf",
-          fr: "arrival-info-fr.pdf",
-          es: "arrival-info-es.pdf",
           fallback: "arrival-info-en.pdf"
         },
         rules: {
           it: "house-rules-it.pdf",
           en: "house-rules-en.pdf",
-          de: "house-rules-de.pdf",
-          fr: "house-rules-fr.pdf",
-          es: "house-rules-es.pdf",
           fallback: "house-rules-en.pdf"
         },
-        pet: "",
-        extra: ""
+        pet: "pet-rules.pdf",
+        extra: {
+          it: "instructions-it.pdf",
+          en: "instructions-en.pdf",
+          fr: "instructions-fr.pdf",
+          fallback: "instructions-en.pdf"
+        },
+        wasteCalendar: "calendar-waster.pdf"
       }
     };
 
@@ -435,7 +440,8 @@
         rulesBtn: "📄 Regole complete",
         arrivalBtn: "📘 Istruzioni dettagliate",
         petBtn: "🐾 Regole animali",
-        extraBtn: "📎 Informazioni extra",
+        extraBtn: "📎 Istruzioni utili",
+        wasteCalendarBtn: "🗓️ Calendario raccolta",
 
         labelAddress: "📍 Indirizzo",
         labelCheckin: "🕒 Check-in",
@@ -504,7 +510,8 @@
         rulesBtn: "📄 Full house rules",
         arrivalBtn: "📘 Detailed instructions",
         petBtn: "🐾 Pet rules",
-        extraBtn: "📎 Extra information",
+        extraBtn: "📎 Useful instructions",
+        wasteCalendarBtn: "🗓️ Waste collection calendar",
 
         labelAddress: "📍 Address",
         labelCheckin: "🕒 Check-in",
@@ -573,7 +580,8 @@
         rulesBtn: "📄 Vollstandige Hausregeln",
         arrivalBtn: "📘 Detaillierte Anweisungen",
         petBtn: "🐾 Regeln fur Haustiere",
-        extraBtn: "📎 Zusatzliche Informationen",
+        extraBtn: "📎 Nutzliche Anleitungen",
+        wasteCalendarBtn: "🗓️ Mullkalender",
 
         labelAddress: "📍 Adresse",
         labelCheckin: "🕒 Check-in",
@@ -642,7 +650,8 @@
         rulesBtn: "📄 Reglement complet",
         arrivalBtn: "📘 Instructions detaillees",
         petBtn: "🐾 Regles animaux",
-        extraBtn: "📎 Informations supplementaires",
+        extraBtn: "📎 Instructions utiles",
+        wasteCalendarBtn: "🗓️ Calendrier de collecte",
 
         labelAddress: "📍 Adresse",
         labelCheckin: "🕒 Check-in",
@@ -711,7 +720,8 @@
         rulesBtn: "📄 Normas completas",
         arrivalBtn: "📘 Instrucciones detalladas",
         petBtn: "🐾 Normas mascotas",
-        extraBtn: "📎 Informacion extra",
+        extraBtn: "📎 Instrucciones utiles",
+        wasteCalendarBtn: "🗓️ Calendario de recogida",
 
         labelAddress: "📍 Direccion",
         labelCheckin: "🕒 Check-in",
@@ -917,6 +927,7 @@
       const arrivalDoc = getDocumentForLang(safeDocuments.arrival, normalizedLang);
       const petDoc = getDocumentForLang(safeDocuments.pet, normalizedLang);
       const extraDoc = getDocumentForLang(safeDocuments.extra, normalizedLang);
+      const wasteCalendarDoc = getDocumentForLang(safeDocuments.wasteCalendar, normalizedLang);
 
       setText("rules-btn", t.rulesBtn);
       setButtonVisibility("rules-btn", rulesDoc);
@@ -929,6 +940,9 @@
 
       setText("extra-btn", t.extraBtn);
       setButtonVisibility("extra-btn", extraDoc);
+
+      setText("waste-calendar-btn", t.wasteCalendarBtn);
+      setButtonVisibility("waste-calendar-btn", wasteCalendarDoc);
 
       updateDocsGridVisibility();
 
@@ -960,7 +974,7 @@
       setTextOrClear("waste-title", hasWasteContent ? t.wasteTitle : "");
       setTextOrClear("waste-text", t.wasteText);
       setTextOrHide("waste-note", t.wasteNote);
-      setHidden("waste-card", !hasWasteContent);
+      setHidden("waste-card", !(hasWasteContent || hasContentValue(wasteCalendarDoc)));
 
       const hasCheckoutContent = hasContentArray(t.checkoutList);
       setTextOrClear("checkout-title", hasCheckoutContent ? t.checkoutTitle : "");
