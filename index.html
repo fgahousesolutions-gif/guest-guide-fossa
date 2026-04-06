@@ -214,11 +214,39 @@
       display: none !important;
     }
 
-    .footer {
+    .ecosystem-card {
       text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .ecosystem-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid #fed7aa;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ecosystem-title {
+      margin-bottom: 12px;
+    }
+
+    .ecosystem-text {
+      max-width: 640px;
+      margin: 0 auto 18px;
       color: var(--muted);
-      font-size: 14px;
-      padding: 8px 0 24px;
+      font-size: 16px;
+    }
+
+    .ecosystem-actions {
+      max-width: 360px;
+      margin: 0 auto;
     }
 
     @media (max-width: 900px) {
@@ -378,7 +406,19 @@
       <p id="coords-row"><strong id="coords-label"></strong> <span id="coords-value"></span></p>
     </section>
 
-    <div class="footer" id="footer-text"></div>
+    <section class="card" id="utility-card">
+      <h2 id="utility-title"></h2>
+      <ul id="utility-list"></ul>
+    </section>
+
+    <section class="card ecosystem-card" id="ecosystem-card">
+      <div class="ecosystem-kicker" id="ecosystem-kicker"></div>
+      <h2 class="ecosystem-title" id="ecosystem-title"></h2>
+      <p class="ecosystem-text" id="ecosystem-text"></p>
+      <div class="button-grid ecosystem-actions">
+        <a class="action-btn" href="https://ecosistema-fga.fgahousesolutions.workers.dev/#structures" target="_blank" rel="noopener noreferrer" id="ecosystem-btn"></a>
+      </div>
+    </section>
   </div>
 
   <script>
@@ -481,7 +521,7 @@
         suggestionsTitle: "🍽️ Suggerimenti in zona",
         restaurantsTitle: "🍴 Ristoranti",
         restaurantsList: [
-          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — consigliata la prenotazione; segnalate che siete ospiti dell'appartamento di Marco Ricci."
+          "<a href=\"https://www.agriturismostatale17.it\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — consigliata la prenotazione; segnalate che siete ospiti dell'appartamento di Marco Ricci."
         ],
 
         attractionsTitle: "🏞️ Attrazioni",
@@ -497,7 +537,17 @@
         mapTitle: "🗺️ Mappa",
         mapText: "Come punto di riferimento utilizzate il Municipio di Fossa: la struttura si trova subito dopo la piazza.",
         coordsLabel: "Coordinate:",
-        footerText: "Auguriamo un buon soggiorno"
+        utilityTitle: "☎️ Numeri utili",
+        utilityList: [
+          "112 — Emergenze",
+          "115 — Vigili del Fuoco",
+          "118 — Emergenza sanitaria",
+          '<a href="tel:+39086225165">Radio Taxi L’Aquila — 0862 25165</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Scopri l’Ecosistema FGA",
+        ecosystemText: "Esperienze diverse, un unico stile di accoglienza. Se stai già pensando al tuo prossimo viaggio, puoi esplorare le altre strutture FGA attualmente disponibili.",
+        ecosystemBtn: "Scopri il tuo prossimo soggiorno"
       },
 
       en: {
@@ -551,7 +601,7 @@
         suggestionsTitle: "🍽️ Local suggestions",
         restaurantsTitle: "🍴 Restaurants",
         restaurantsList: [
-          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — booking is recommended; please mention that you are guests of Marco Ricci's apartment."
+          "<a href=\"https://www.agriturismostatale17.it\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — booking is recommended; please mention that you are guests of Marco Ricci's apartment."
         ],
 
         attractionsTitle: "🏞️ Attractions",
@@ -567,7 +617,17 @@
         mapTitle: "🗺️ Map",
         mapText: "Use the Town Hall of Fossa as your reference point: the property is located immediately after the main square.",
         coordsLabel: "Coordinates:",
-        footerText: "We wish you a pleasant stay"
+        utilityTitle: "☎️ Useful numbers",
+        utilityList: [
+          "112 — Emergency",
+          "115 — Fire brigade",
+          "118 — Medical emergency",
+          '<a href="tel:+39086225165">L’Aquila Radio Taxi — 0862 25165</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Discover the FGA Ecosystem",
+        ecosystemText: "Different stays, one shared style of hospitality. If you are already thinking about your next trip, you can explore the other FGA properties currently available.",
+        ecosystemBtn: "Discover your next stay"
       },
 
       de: {
@@ -621,7 +681,7 @@
         suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
         restaurantsTitle: "🍴 Restaurants",
         restaurantsList: [
-          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — Reservierung empfohlen; bitte sagen Sie, dass Sie Gaste von Marco Riccis Apartment sind."
+          "<a href=\"https://www.agriturismostatale17.it\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — Reservierung empfohlen; bitte sagen Sie, dass Sie Gaste von Marco Riccis Apartment sind."
         ],
 
         attractionsTitle: "🏞️ Sehenswurdigkeiten",
@@ -637,7 +697,17 @@
         mapTitle: "🗺️ Karte",
         mapText: "Nutzen Sie das Rathaus von Fossa als Orientierungspunkt: die Unterkunft befindet sich direkt hinter dem Hauptplatz.",
         coordsLabel: "Koordinaten:",
-        footerText: "Wir wunschen Ihnen einen angenehmen Aufenthalt"
+        utilityTitle: "☎️ Nützliche Nummern",
+        utilityList: [
+          "112 — Notruf",
+          "115 — Feuerwehr",
+          "118 — Medizinischer Notdienst",
+          '<a href="tel:+39086225165">Radio Taxi L’Aquila — 0862 25165</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Entdecke das FGA-Ökosystem",
+        ecosystemText: "Unterschiedliche Aufenthalte, ein gemeinsamer Stil der Gastfreundschaft. Wenn du schon an deine nächste Reise denkst, kannst du die weiteren derzeit verfügbaren FGA-Unterkünfte entdecken.",
+        ecosystemBtn: "Entdecke deinen nächsten Aufenthalt"
       },
 
       fr: {
@@ -691,7 +761,7 @@
         suggestionsTitle: "🍽️ Suggestions dans les environs",
         restaurantsTitle: "🍴 Restaurants",
         restaurantsList: [
-          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — reservation recommandee ; merci de signaler que vous etes les hotes de l'appartement de Marco Ricci."
+          "<a href=\"https://www.agriturismostatale17.it\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — reservation recommandee ; merci de signaler que vous etes les hotes de l'appartement de Marco Ricci."
         ],
 
         attractionsTitle: "🏞️ Attractions",
@@ -707,7 +777,17 @@
         mapTitle: "🗺️ Carte",
         mapText: "Utilisez la mairie de Fossa comme point de repere : l'hebergement se trouve juste apres la place principale.",
         coordsLabel: "Coordonnees :",
-        footerText: "Nous vous souhaitons un excellent sejour"
+        utilityTitle: "☎️ Numéros utiles",
+        utilityList: [
+          "112 — Urgences",
+          "115 — Pompiers",
+          "118 — Urgence médicale",
+          '<a href="tel:+39086225165">Radio Taxi L’Aquila — 0862 25165</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Découvrir l’Écosystème FGA",
+        ecosystemText: "Des séjours différents, un même style d’accueil. Si vous pensez déjà à votre prochain voyage, vous pouvez explorer les autres hébergements FGA actuellement disponibles.",
+        ecosystemBtn: "Découvrir votre prochain séjour"
       },
 
       es: {
@@ -761,7 +841,7 @@
         suggestionsTitle: "🍽️ Sugerencias en la zona",
         restaurantsTitle: "🍴 Restaurantes",
         restaurantsList: [
-          "<a href=\"https://www.paginegialle.it/poggio-picenze-aq/ristoranti/agriturismo-statale-17_21161629\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — se recomienda reservar; indique que es huesped del apartamento de Marco Ricci."
+          "<a href=\"https://www.agriturismostatale17.it\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Agriturismo Statale 17</strong></a> — se recomienda reservar; indique que es huesped del apartamento de Marco Ricci."
         ],
 
         attractionsTitle: "🏞️ Atracciones",
@@ -777,7 +857,17 @@
         mapTitle: "🗺️ Mapa",
         mapText: "Utilice el Ayuntamiento de Fossa como punto de referencia: el alojamiento se encuentra justo despues de la plaza principal.",
         coordsLabel: "Coordenadas:",
-        footerText: "Le deseamos una feliz estancia"
+        utilityTitle: "☎️ Números útiles",
+        utilityList: [
+          "112 — Emergencias",
+          "115 — Bomberos",
+          "118 — Emergencia médica",
+          '<a href="tel:+39086225165">Radio Taxi L’Aquila — 0862 25165</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Descubre el Ecosistema FGA",
+        ecosystemText: "Experiencias diferentes, un mismo estilo de hospitalidad. Si ya estás pensando en tu próximo viaje, puedes explorar las otras propiedades FGA actualmente disponibles.",
+        ecosystemBtn: "Descubre tu próxima estancia"
       }
     };
 
@@ -1022,8 +1112,15 @@
       setTextOrClear("coords-value", PROPERTY.coordinates);
       setHidden("coords-row", !hasCoordinates);
       setHidden("map-card", !hasMapContent);
+      const hasUtilityContent = hasContentArray(t.utilityList);
+      setTextOrClear("utility-title", hasUtilityContent ? t.utilityTitle : "");
+      renderList("utility-list", hasUtilityContent ? t.utilityList : []);
+      setHidden("utility-card", !hasUtilityContent);
 
-      setText("footer-text", t.footerText);
+      setText("ecosystem-kicker", t.ecosystemKicker);
+      setText("ecosystem-title", t.ecosystemTitle);
+      setText("ecosystem-text", t.ecosystemText);
+      setText("ecosystem-btn", t.ecosystemBtn);
 
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === normalizedLang);
