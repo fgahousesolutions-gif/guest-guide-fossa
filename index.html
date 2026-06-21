@@ -374,6 +374,12 @@
       <ul id="rules-list"></ul>
     </section>
 
+    <section class="card" id="power-card">
+      <h2 id="power-title"></h2>
+      <ul id="power-list"></ul>
+      <p class="muted" id="power-note"></p>
+    </section>
+
     <section class="card" id="waste-card">
       <h2 id="waste-title"></h2>
       <p id="waste-text"></p>
@@ -505,6 +511,15 @@
           "Chiudere sempre porte e finestre quando si esce."
         ],
 
+        powerTitle: "⚡ Ripristino corrente",
+        powerList: [
+          "Se salta l'interruttore generale, prendete le chiavi in soggiorno: si trovano sopra la TV, nel cofanetto con i libri blu.",
+          "Il contatore e all'esterno, accanto alla porta di ingresso, nel vano grigio.",
+          "Usate le chiavi per aprire il vano grigio e ripristinare l'interruttore generale.",
+          "Dopo l'uso, riponete le chiavi nello stesso cofanetto sopra la TV."
+        ],
+        powerNote: "Per evitare che la corrente salti di nuovo, non utilizzate contemporaneamente troppi elettrodomestici.",
+
         wasteTitle: "♻️ Rifiuti",
         wasteText: "La raccolta differenziata e obbligatoria e va effettuata utilizzando gli appositi contenitori.",
         wasteNote: "Per soggiorni medio-lunghi, seguite la tabella dei giorni di raccolta ed esponete i rifiuti in strada nei giorni corretti.",
@@ -584,6 +599,15 @@
           "Please avoid using too many electrical appliances at the same time to prevent the power from tripping.",
           "Always close doors and windows when leaving."
         ],
+
+        powerTitle: "⚡ Restoring power",
+        powerList: [
+          "If the main switch trips, take the keys from the living room: they are above the TV, inside the small box with the blue books.",
+          "The electricity meter is outside, next to the entrance door, inside the grey cabinet.",
+          "Use the keys to open the grey cabinet and reset the main switch.",
+          "After use, please put the keys back in the same small box above the TV."
+        ],
+        powerNote: "To prevent the power from tripping again, please do not use too many appliances at the same time.",
 
         wasteTitle: "♻️ Waste",
         wasteText: "Waste sorting is mandatory and must be done using the appropriate bins.",
@@ -665,6 +689,15 @@
           "Schliessen Sie beim Verlassen immer Turen und Fenster."
         ],
 
+        powerTitle: "⚡ Strom wieder einschalten",
+        powerList: [
+          "Wenn der Hauptschalter auslost, nehmen Sie die Schlussel im Wohnzimmer: Sie befinden sich uber dem Fernseher, im Kastchen mit den blauen Buchern.",
+          "Der Stromzahler befindet sich draussen neben der Eingangstur, im grauen Fach.",
+          "Verwenden Sie die Schlussel, um das graue Fach zu offnen und den Hauptschalter wieder einzuschalten.",
+          "Legen Sie die Schlussel danach bitte wieder in dasselbe Kastchen uber dem Fernseher zuruck."
+        ],
+        powerNote: "Damit der Strom nicht erneut ausfallt, benutzen Sie bitte nicht zu viele Elektrogerate gleichzeitig.",
+
         wasteTitle: "♻️ Mull",
         wasteText: "Mulltrennung ist Pflicht und muss mit den dafur vorgesehenen Behaltern erfolgen.",
         wasteNote: "Bei mittel- oder langfristigen Aufenthalten beachten Sie bitte den Sammelkalender und stellen Sie den Mull an den richtigen Tagen hinaus.",
@@ -745,6 +778,15 @@
           "Fermez toujours les portes et les fenetres lorsque vous sortez."
         ],
 
+        powerTitle: "⚡ Retablir le courant",
+        powerList: [
+          "Si l'interrupteur general saute, prenez les cles dans le salon : elles se trouvent au-dessus de la TV, dans le coffret avec les livres bleus.",
+          "Le compteur se trouve a l'exterieur, a cote de la porte d'entree, dans le coffret gris.",
+          "Utilisez les cles pour ouvrir le coffret gris et retablir l'interrupteur general.",
+          "Apres utilisation, merci de remettre les cles dans le meme coffret au-dessus de la TV."
+        ],
+        powerNote: "Pour eviter que le courant ne saute a nouveau, n'utilisez pas trop d'appareils electriques en meme temps.",
+
         wasteTitle: "♻️ Dechets",
         wasteText: "Le tri des dechets est obligatoire et doit etre effectue en utilisant les conteneurs appropries.",
         wasteNote: "Pour les sejours moyens ou longs, veuillez suivre le calendrier de collecte et sortir les dechets les bons jours.",
@@ -824,6 +866,15 @@
           "Procure no utilizar demasiados electrodomesticos al mismo tiempo para evitar que salte la corriente.",
           "Cierre siempre puertas y ventanas al salir."
         ],
+
+        powerTitle: "⚡ Restablecer la corriente",
+        powerList: [
+          "Si salta el interruptor general, tome las llaves del salon: estan encima de la TV, en el cofre con los libros azules.",
+          "El contador esta fuera, junto a la puerta de entrada, en el compartimento gris.",
+          "Use las llaves para abrir el compartimento gris y restablecer el interruptor general.",
+          "Despues de usarlas, vuelva a dejar las llaves en el mismo cofre encima de la TV."
+        ],
+        powerNote: "Para evitar que la corriente vuelva a saltar, no utilice demasiados electrodomesticos al mismo tiempo.",
 
         wasteTitle: "♻️ Residuos",
         wasteText: "La recogida selectiva es obligatoria y debe hacerse utilizando los contenedores correspondientes.",
@@ -1059,6 +1110,12 @@
       setTextOrClear("rules-title", hasRulesContent ? t.rulesTitle : "");
       renderList("rules-list", hasRulesContent ? t.rulesList : []);
       setHidden("rules-card", !hasRulesContent);
+
+      const hasPowerContent = hasContentArray(t.powerList) || hasContentValue(t.powerNote);
+      setTextOrClear("power-title", hasPowerContent ? t.powerTitle : "");
+      renderList("power-list", hasContentArray(t.powerList) ? t.powerList : []);
+      setTextOrHide("power-note", t.powerNote);
+      setHidden("power-card", !hasPowerContent);
 
       const hasWasteContent = hasContentValue(t.wasteText) || hasContentValue(t.wasteNote);
       setTextOrClear("waste-title", hasWasteContent ? t.wasteTitle : "");
