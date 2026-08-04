@@ -369,6 +369,12 @@
       <p class="muted" id="access-note"></p>
     </section>
 
+    <section class="card" id="wifi-backup-card">
+      <h2 id="wifi-backup-title"></h2>
+      <ul id="wifi-backup-list"></ul>
+      <p class="muted" id="wifi-backup-note"></p>
+    </section>
+
     <section class="card" id="rules-card">
       <h2 id="rules-title"></h2>
       <ul id="rules-list"></ul>
@@ -450,7 +456,7 @@
       checkin: "15:30 - 00:00",
       checkout: "10:00 - 10:30",
 
-      wifiName: "TP-Link_F266",
+      wifiName: "air2bite_F266",
       wifiPassword: "5Ad4MHt8",
 
       documents: {
@@ -502,6 +508,15 @@
         accessTitle: "🗝️ Accesso",
         accessText: "Dopo aver parcheggiato sulla strada principale come indicato, raggiungete la scalinata poco distante e salite fino in cima al piano rialzato. Sulla ringhiera a destra troverete la keybox con le chiavi all'interno. Consultate anche la guida allegata con foto.",
         accessNote: "Il codice della keybox verra comunicato dall'host il giorno del check-in.",
+
+        wifiBackupTitle: "📶 Wi-Fi di backup",
+        wifiBackupList: [
+          "Usate normalmente la rete principale: air2bite_F266.",
+          "Se la rete principale non funziona, provate la rete Vodafone: Francesco2026.",
+          "Password Vodafone: Francesco2026.",
+          "Se anche la rete Vodafone non funziona, contattate l'host e verificate prima che dietro al mobile sia tutto collegato correttamente."
+        ],
+        wifiBackupNote: "La Vodafone Station deve restare sempre accesa e collegata.",
 
         rulesTitle: "🏡 Regole casa",
         rulesList: [
@@ -592,6 +607,15 @@
         accessText: "After parking on the main road as indicated, walk to the nearby staircase and go up to the raised ground floor. On the railing to the right you will find the keybox with the keys inside. Please also check the attached guide with photos.",
         accessNote: "The keybox code will be provided by the host on the day of check-in.",
 
+        wifiBackupTitle: "📶 Backup Wi-Fi",
+        wifiBackupList: [
+          "Normally use the main network: air2bite_F266.",
+          "If the main network does not work, try the Vodafone network: Francesco2026.",
+          "Vodafone password: Francesco2026.",
+          "If the Vodafone network does not work either, contact the host and first check that everything behind the cabinet is correctly connected."
+        ],
+        wifiBackupNote: "The Vodafone Station must always remain switched on and connected.",
+
         rulesTitle: "🏡 House rules",
         rulesList: [
           "Smoking is not allowed anywhere inside the house.",
@@ -680,6 +704,15 @@
         accessTitle: "🗝️ Zugang",
         accessText: "Nachdem Sie wie angegeben an der Hauptstrasse geparkt haben, gehen Sie zur nahegelegenen Treppe und hinauf bis zum Hochparterre. Am Gelander auf der rechten Seite finden Sie die Keybox mit den Schlusseln. Bitte sehen Sie sich auch die beigefugte Anleitung mit Fotos an.",
         accessNote: "Der Code der Keybox wird Ihnen vom Host am Tag des Check-ins mitgeteilt.",
+
+        wifiBackupTitle: "📶 Backup-Wi-Fi",
+        wifiBackupList: [
+          "Nutzen Sie normalerweise das Hauptnetzwerk: air2bite_F266.",
+          "Wenn das Hauptnetzwerk nicht funktioniert, versuchen Sie das Vodafone-Netzwerk: Francesco2026.",
+          "Vodafone-Passwort: Francesco2026.",
+          "Wenn auch das Vodafone-Netzwerk nicht funktioniert, kontaktieren Sie den Host und prufen Sie zuerst, ob hinter dem Mobel alles richtig angeschlossen ist."
+        ],
+        wifiBackupNote: "Die Vodafone Station muss immer eingeschaltet und angeschlossen bleiben.",
 
         rulesTitle: "🏡 Hausregeln",
         rulesList: [
@@ -770,6 +803,15 @@
         accessText: "Apres avoir gare la voiture sur la route principale comme indique, rejoignez l'escalier situe a proximite et montez jusqu'au rez-de-chaussee sureleve. Sur la rambarde a droite, vous trouverez la keybox contenant les cles. Consultez egalement le guide joint avec photos.",
         accessNote: "Le code de la keybox sera communique par l'hote le jour du check-in.",
 
+        wifiBackupTitle: "📶 Wi-Fi de secours",
+        wifiBackupList: [
+          "Utilisez normalement le reseau principal : air2bite_F266.",
+          "Si le reseau principal ne fonctionne pas, essayez le reseau Vodafone : Francesco2026.",
+          "Mot de passe Vodafone : Francesco2026.",
+          "Si le reseau Vodafone ne fonctionne pas non plus, contactez l'hote et verifiez d'abord que tout est correctement branche derriere le meuble."
+        ],
+        wifiBackupNote: "La Vodafone Station doit toujours rester allumee et branchee.",
+
         rulesTitle: "🏡 Regles de la maison",
         rulesList: [
           "Il est interdit de fumer dans toute la maison.",
@@ -858,6 +900,15 @@
         accessTitle: "🗝️ Acceso",
         accessText: "Despues de aparcar en la calle principal como se indica, llegue a la escalera cercana y suba hasta la planta elevada. En la barandilla de la derecha encontrara la keybox con las llaves dentro. Consulte tambien la guia adjunta con fotos.",
         accessNote: "El codigo de la keybox sera comunicado por el anfitrion el dia del check-in.",
+
+        wifiBackupTitle: "📶 Wi-Fi de respaldo",
+        wifiBackupList: [
+          "Use normalmente la red principal: air2bite_F266.",
+          "Si la red principal no funciona, pruebe la red Vodafone: Francesco2026.",
+          "Contrasena Vodafone: Francesco2026.",
+          "Si tampoco funciona la red Vodafone, contacte con el anfitrion y compruebe primero que todo este correctamente conectado detras del mueble."
+        ],
+        wifiBackupNote: "La Vodafone Station debe permanecer siempre encendida y conectada.",
 
         rulesTitle: "🏡 Normas de la casa",
         rulesList: [
@@ -1105,6 +1156,12 @@
       setTextOrClear("access-text", t.accessText);
       setTextOrHide("access-note", t.accessNote);
       setHidden("access-card", !hasAccessContent);
+
+      const hasWifiBackupContent = hasContentArray(t.wifiBackupList) || hasContentValue(t.wifiBackupNote);
+      setTextOrClear("wifi-backup-title", hasWifiBackupContent ? t.wifiBackupTitle : "");
+      renderList("wifi-backup-list", hasContentArray(t.wifiBackupList) ? t.wifiBackupList : []);
+      setTextOrHide("wifi-backup-note", t.wifiBackupNote);
+      setHidden("wifi-backup-card", !hasWifiBackupContent);
 
       const hasRulesContent = hasContentArray(t.rulesList);
       setTextOrClear("rules-title", hasRulesContent ? t.rulesTitle : "");
